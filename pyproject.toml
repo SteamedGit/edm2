@@ -1,0 +1,28 @@
+[project]
+name = "edm2"
+version = "0.1.0"
+description = "EDM2 and Autoguidance - Official PyTorch implementation (NVIDIA)"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "torch>=2.7",
+    "click",
+    "Pillow",
+    "psutil",
+    "requests",
+    "scipy",
+    "tqdm",
+    "numpy",
+    "matplotlib",
+    "diffusers==0.26.3",
+    "accelerate==0.27.2",
+    "huggingface_hub==0.25.2",
+]
+
+# Blackwell (sm_120) GPUs need PyTorch built against CUDA 12.8+
+[tool.uv.sources]
+torch = { index = "pytorch-cu128" }
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
